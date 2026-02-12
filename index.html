@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- VIEWPORT CORRETO - SEM user-scalable=no, SEM ERROS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANA CAROL · Assessoria de Eventos Sociais</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ----- RESET E VARIÁVEIS ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: #0a1628;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      line-height: 1.5;
+      color: #f0ecdf;
+    }
+
+    :root {
+      --bg-deep: #0a1628;
+      --surface: #101c30;
+      --gold: #c9a84c;
+      --gold-light: #e5d29f;
+      --gold-dark: #a88632;
+      --text-light: #f0ecdf;
+      --text-soft: rgba(240, 236, 223, 0.85);
+      --text-muted: rgba(240, 236, 223, 0.6);
+    }
+
+    /* ----- TIPOGRAFIA ----- */
+    h1, h2, h3, .font-display {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .font-serif-alt {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .font-lora {
+      font-family: 'Lora', serif;
+    }
+
+    /* ----- LOGO PRINCIPAL ----- */
+    .logo-exata {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+    }
+    
+    .logo-principal {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #f5e7c8, #c9a84c, #b38f40, #dbb957);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #c9a84c;
+      text-shadow: 0 2px 10px rgba(201, 168, 76, 0.3);
+      margin-bottom: -5px;
+    }
+    
+    .logo-secundaria {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #f0ecdf;
+      background: rgba(201, 168, 76, 0.1);
+      padding: 4px 12px 4px 16px;
+      border-radius: 30px;
+      border-left: 4px solid #c9a84c;
+      margin-top: 2px;
+    }
+
+    /* Logo HERO */
+    .logo-hero-principal {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: clamp(3rem, 12vw, 5.5rem);
+      letter-spacing: 4px;
+      background: linear-gradient(145deg, #f5ebd2, #c9a84c, #b38f40, #dbb957);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #c9a84c;
+      filter: drop-shadow(0 8px 24px rgba(201,168,76,0.3));
+      line-height: 1.1;
+    }
+    
+    .logo-hero-secundaria {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      color: #f0ecdf;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+      padding: 8px 24px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      border-radius: 40px;
+    }
+
+    /* ----- BACKDROP-FILTER ----- */
+    .blur-bg {
+      background: rgba(10, 22, 40, 0.85);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+    
+    .card-blur {
+      background: linear-gradient(145deg, rgba(16, 28, 48, 0.8), rgba(8, 18, 32, 0.95));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    /* ----- EFEITOS GLOBAIS ----- */
+    .gold-gradient-text {
+      background: linear-gradient(145deg, #f5e7c8, #c9a84c, #b38f40, #c9a84c);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #c9a84c;
+      animation: shimmer 6s ease infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      50% { background-position: 200% center; }
+      100% { background-position: 0% center; }
+    }
+
+    .gold-line {
+      height: 2px;
+      width: 80px;
+      background: linear-gradient(90deg, transparent, #c9a84c, #f5e7c8, #c9a84c, transparent);
+      background-size: 200% auto;
+      animation: lineShimmer 5s linear infinite;
+      margin: 1.5rem 0;
+    }
+    
+    .gold-line.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes lineShimmer {
+      0% { background-position: -100% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Cards */
+    .card-luxo {
+      background: linear-gradient(145deg, #101c30, #0a1422);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 2.5rem 1.8rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -15px rgba(0,0,0,0.5);
+    }
+
+    .card-luxo:hover {
+      border-color: rgba(201, 168, 76, 0.5);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 30px 50px -15px rgba(201, 168, 76, 0.25);
+    }
+
+    /* Botões */
+    .btn-gold {
+      background: linear-gradient(145deg, #c9a84c, #a67c1e);
+      border: none;
+      border-radius: 40px;
+      padding: 0.9rem 2.5rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: #0a1628;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      box-shadow: 0 10px 20px -8px rgba(201,168,76,0.3);
+    }
+    
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -8px #c9a84c;
+      background: linear-gradient(145deg, #dbb244, #b38f40);
+    }
+
+    .btn-instagram {
+      background: rgba(10, 22, 40, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(201, 168, 76, 0.4);
+      border-radius: 40px;
+      padding: 0.9rem 2rem;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #c9a84c;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .btn-instagram:hover {
+      border-color: #c9a84c;
+      background: rgba(201, 168, 76, 0.1);
+      color: #f5e7c8;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(10, 22, 40, 0.85);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 0.75rem 2rem;
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+      color: #f0ecdf;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, #c9a84c, transparent);
+      transition: width 0.25s;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-link:hover {
+      color: #c9a84c;
+    }
+
+    /* Animações */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+    
+    .fade-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #e5d29f;
+      box-shadow: 0 0 20px 2px #c9a84c;
+      opacity: 0.6;
+      animation: sparklePulse 4s infinite alternate;
+    }
+    
+    @keyframes sparklePulse {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 0.9; transform: scale(1.3); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a1628; }
+    ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+
+    /* ANIMAÇÃO DE ROLAGEM AUTOMÁTICA */
+    @keyframes scrollGallery {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 16px)); }
+    }
+
+    #carrossel-galeria {
+      animation: scrollGallery 30s linear infinite;
+      width: fit-content;
+    }
+
+    #carrossel-galeria:hover {
+      animation-play-state: paused !important;
+    }
+
+    @media (max-width: 768px) {
+      #carrossel-galeria {
+        animation-duration: 20s;
+      }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WRAPPER PRINCIPAL -->
+<div class="relative w-full overflow-hidden">
+
+  <!-- ========== NAVBAR CORRIGIDA - SEM ERROS ========== -->
+  <nav class="navbar fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-10">
+    
+    <!-- LOGO - CORRETO (UMA ÚNICA VEZ) -->
+    <div class="flex items-center">
+      <img src="Logoana.png" alt="ANA CAROL Assessoria de Eventos Sociais" class="h-12 md:h-14 w-auto">
+    </div>
+
+    <!-- MENU CENTRAL -->
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#inicio" class="nav-link">Início</a>
+      <a href="#servicos" class="nav-link">Serviços</a>
+      <a href="#sobre" class="nav-link">Sobre</a>
+      <a href="#galeria" class="nav-link">Galeria</a>
+      <a href="#contato" class="nav-link">Contato</a>
+    </div>
+
+    <!-- INSTAGRAM BUTTON -->
+    <a href="https://www.instagram.com/anacarol.assessoria/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="btn-instagram text-xs py-2 px-5 hidden sm:flex">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="5" />
+        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+      </svg>
+      <span>@anacarol.assessoria</span>
+    </a>
+  </nav>
+  
+  <!-- RESTO DO SEU SITE CONTINUA AQUI... -->
+
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center" 
+             style="background: radial-gradient(circle at 70% 20%, rgba(201,168,76,0.08), transparent 60%), radial-gradient(circle at 30% 80%, rgba(201,168,76,0.05), transparent 70%), #0a1628;">
+      
+      <!-- SPARKLES -->
+      <div class="sparkle" style="top: 20%; left: 10%;"></div>
+      <div class="sparkle" style="top: 70%; right: 12%; width: 7px; height: 7px; animation-delay: 1s;"></div>
+      <div class="sparkle" style="top: 45%; left: 85%; animation-delay: 0.5s;"></div>
+      <div class="sparkle" style="bottom: 20%; left: 20%; animation-delay: 1.8s;"></div>
+
+      <div class="max-w-6xl mx-auto px-6 text-center z-10 py-28 md:py-20">
+        
+        <!-- LOGO HERO -->
+        <div class="fade-up revealed">
+          <div class="logo-hero-principal">ANA CAROL</div>
+          <div class="logo-hero-secundaria">ASSESSORIA DE EVENTOS SOCIAIS</div>
+        </div>
+
+        <!-- TAGLINE -->
+        <div class="fade-up delay-1 mt-8 max-w-3xl mx-auto">
+          <p class="text-xl md:text-2xl font-lora italic text-[rgba(240,236,223,0.9)] border-y border-[#c9a84c]/30 py-4 inline-block px-8">
+            ✦ Onde cada detalhe ganha propósito ✦
+          </p>
+        </div>
+
+        <!-- LINHA DOURADA -->
+        <div class="gold-line center mt-10 mb-10"></div>
+
+        <!-- BOTÕES -->
+        <div class="fade-up delay-2 flex flex-col sm:flex-row gap-6 justify-center items-center mt-8">
+          <a href="#servicos" class="btn-gold">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2">
+              <path d="M12 2L15 9H22L16 14L19 21L12 16.5L5 21L8 14L2 9H9L12 2Z" />
+            </svg>
+            Nossos serviços
+          </a>
+          <a href="https://www.instagram.com/anacarol.assessoria/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+            </svg>
+            @anacarol.assessoria
+          </a>
+        </div>
+
+        <!-- SCROLL INDICATOR -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
+          <span class="text-xs tracking-[6px] text-[#c9a84c]/60 uppercase">role</span>
+          <div class="w-6 h-10 border border-[#c9a84c]/40 rounded-full flex justify-center">
+            <div class="w-1 h-2 bg-[#c9a84c] rounded-full mt-2 animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVIÇOS ========== -->
+    <section id="servicos" class="w-full py-28 px-4" style="background: #101c30;">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center fade-up">
+          <span class="text-xs tracking-[8px] uppercase text-[#c9a84c] font-semibold">Excelência</span>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-display gold-gradient-text mt-4 mb-4">Nossos Serviços</h2>
+          <div class="gold-line center"></div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+          
+          <div class="card-luxo fade-up flex flex-col items-center text-center">
+            <div class="w-24 h-24 rounded-full bg-[rgba(201,168,76,0.08)] border border-[#c9a84c]/30 flex items-center justify-center mb-6">
+              <svg width="44" height="44" viewBox="0 0 40 40" fill="none">
+                <path d="M20 8C15 8 10 12 10 18C10 26 20 34 20 34C20 34 30 26 30 18C30 12 25 8 20 8Z" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.1)"/>
+                <circle cx="20" cy="18" r="4" stroke="#c9a84c" fill="rgba(201,168,76,0.2)"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-display text-[#c9a84c] mb-3">Casamentos</h3>
+            <p class="text-[rgba(240,236,223,0.7)] text-base leading-relaxed">Planejamento completo, do convite à última dança. Cada detalhe com amor e excelência.</p>
+          </div>
+
+          <div class="card-luxo fade-up delay-1 flex flex-col items-center text-center">
+            <div class="w-24 h-24 rounded-full bg-[rgba(201,168,76,0.08)] border border-[#c9a84c]/30 flex items-center justify-center mb-6">
+              <svg width="44" height="44" viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="14" width="24" height="18" rx="3" stroke="#c9a84c" fill="rgba(201,168,76,0.1)"/>
+                <path d="M8 20L20 26L32 20" stroke="#c9a84c" stroke-width="1.2"/>
+                <circle cx="20" cy="10" r="4" stroke="#c9a84c" fill="rgba(201,168,76,0.2)"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-display text-[#c9a84c] mb-3">Festas & Celebrações</h3>
+            <p class="text-[rgba(240,236,223,0.7)] text-base leading-relaxed">Aniversários, formaturas, chás. Eventos únicos que refletem sua personalidade.</p>
+          </div>
+
+          <div class="card-luxo fade-up delay-2 flex flex-col items-center text-center">
+            <div class="w-24 h-24 rounded-full bg-[rgba(201,168,76,0.08)] border border-[#c9a84c]/30 flex items-center justify-center mb-6">
+              <svg width="44" height="44" viewBox="0 0 40 40" fill="none">
+                <path d="M10 30L14 18L20 22L26 12L30 20" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+                <circle cx="14" cy="18" r="2" fill="#c9a84c"/>
+                <circle cx="20" cy="22" r="2" fill="#c9a84c"/>
+                <circle cx="26" cy="12" r="2" fill="#c9a84c"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-display text-[#c9a84c] mb-3">Consultoria & Cerimonial</h3>
+            <p class="text-[rgba(240,236,223,0.7)] text-base leading-relaxed">Orientação especializada para um evento impecável, do planejamento à execução.</p>
+          </div>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section id="sobre" class="w-full py-28 px-4" style="background: #0a1628;">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        
+        <!-- LADO ESQUERDO: MONOGRAMA -->
+        <div class="fade-up flex justify-center">
+          <div class="relative w-full max-w-sm aspect-square rounded-[40px] border border-[#c9a84c]/30 
+                      bg-gradient-to-br from-[rgba(16,28,48,0.8)] to-[rgba(8,18,32,0.9)] 
+                      flex flex-col items-center justify-center p-10 shadow-2xl"
+               style="-webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 25px 40px -15px rgba(0,0,0,0.6);">
+
+            <!-- Efeito de brilho radial -->
+            <div class="absolute inset-0 rounded-[40px] 
+                        bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,168,76,0.15),transparent_70%)]
+                        opacity-60">
+            </div>
+
+            <!-- CONTAINER DA LOGO -->
+            <div class="relative z-10 flex flex-col items-center justify-center w-full">
+              
+              <!-- SVG COM MONOGRAMA -->
+              <svg width="180" height="180" viewBox="0 0 180 180" class="mb-6 drop-shadow-2xl">
+                <!-- Círculo externo decorativo -->
+                <circle cx="90" cy="90" r="78" stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.02)" stroke-dasharray="6 4" opacity="0.7"/>
+                <!-- Círculo interno com brilho -->
+                <circle cx="90" cy="90" r="65" stroke="rgba(201,168,76,0.3)" stroke-width="0.8" fill="rgba(10,22,40,0.3)" stroke-dasharray="3 3"/>
+                <!-- Círculo dourado sutil -->
+                <circle cx="90" cy="90" r="55" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.2)" stroke-width="0.5"/>
+                
+                <!-- IMAGEM CENTRAL - ANA CAROL -->
+                <image 
+                  href="Logoana.png"
+                  x="90" 
+                  y="90" 
+                  width="100" 
+                height="100" 
+                transform="translate(-50, -50)"
+                preserveAspectRatio="xMidYMid meet"
+                />
+
+                <!-- Pontos decorativos dourados -->
+                <circle cx="90" cy="25" r="3" fill="#c9a84c" opacity="0.6" />
+                <circle cx="90" cy="155" r="3" fill="#c9a84c" opacity="0.6" />
+                <circle cx="25" cy="90" r="3" fill="#c9a84c" opacity="0.6" />
+                <circle cx="155" cy="90" r="3" fill="#c9a84c" opacity="0.6" />
+              </svg>
+
+              <!-- Linha dourada -->
+              <div class="w-32 h-[2px] bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent my-5"></div>
+
+              <!-- Frase -->
+              <p class="text-[#c9a84c] text-center text-xl italic font-lora relative px-4 py-2 
+                        border-y border-[#c9a84c]/30 max-w-xs">
+                “Transformando sonhos em realidade”
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEXTO SOBRE -->
+        <div class="fade-up delay-1">
+          <span class="text-xs tracking-[8px] uppercase text-[#c9a84c] font-semibold border-b border-[#c9a84c]/30 pb-2 inline-block">Quem sou</span>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-display gold-gradient-text mt-6 mb-5 leading-tight">Ana Carol</h2>
+          <div class="gold-line w-24"></div>
+          
+          <p class="text-lg md:text-xl text-[rgba(240,236,223,0.9)] leading-relaxed mt-8 font-serif-alt">
+            Apaixonada por transformar sonhos em realidade, <span class="text-[#c9a84c] font-semibold relative inline-block">Ana Carol<span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#c9a84c]/40"></span></span> traz dedicação e carinho em cada projeto. Com olhar atento aos detalhes e compromisso com a excelência, cada evento é tratado como único — porque realmente é.
+          </p>
+          
+          <div class="mt-10 p-6 border-l-4 border-[#c9a84c] bg-[rgba(201,168,76,0.05)] rounded-r-2xl">
+            <p class="text-lg text-[rgba(240,236,223,0.8)] leading-relaxed italic font-lora">
+              “Da primeira reunião ao último brinde, acompanhamos cada etapa com profissionalismo e sensibilidade.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GALERIA - CARROSSEL AUTOMÁTICO CORRIGIDO ========== -->
+    <section id="galeria" class="w-full py-16 px-4 relative overflow-hidden" style="background: #101c30;">
+      
+      <!-- Efeito de gradiente nas laterais -->
+      <div class="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-[#101c30] to-transparent z-20 pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-[#101c30] to-transparent z-20 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        
+        <!-- Cabeçalho -->
+        <div class="text-center fade-up max-w-xl mx-auto mb-12">
+          <span class="text-[10px] tracking-[6px] uppercase text-[#c9a84c]/70 font-light inline-block mb-2">Feedbacks</span>
+          <h2 class="text-2xl md:text-3xl font-display gold-gradient-text mb-2">Eventos Reais</h2>
+          <div class="gold-line center !w-12"></div>
+          <p class="text-[12px] text-[#c9a84c]/50 mt-4 tracking-[2px] uppercase">⟡ clique nas fotos para ampliar ⟡</p>
+        </div>
+
+        <!-- CONTAINER DE ROLAGEM AUTOMÁTICA -->
+        <div class="relative w-full overflow-hidden py-4">
+          
+          <!-- Carrossel infinito -->
+          <div id="carrossel-galeria" class="flex gap-6 md:gap-8 items-center" style="width: fit-content;">
+            
+            <!-- GRUPO 1 - Fotos originais -->
+        <div class="flex gap-6 md:gap-8 items-center">
+          
+          <!-- Foto 1 -->
+          <div class="fade-up group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('1.png')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de casamento"
+               title="Clique para ampliar - Casamento">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('1.png');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+          
+          <!-- Foto 2 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('2.png')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('2.png');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+          
+          <!-- Foto 3 -->
+          <div class="fade-up delay-2 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('3.png')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de noivado"
+               title="Clique para ampliar - Noivado">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('3.png');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+          
+          <!-- Foto 4 -->
+          <div class="fade-up group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('4.png')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de formatura"
+               title="Clique para ampliar - Formatura">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('4.png');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+          
+          <!-- Foto 5 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('5.png')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de aniversário"
+               title="Clique para ampliar - Aniversário">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('5.png');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+          
+          <!-- Foto 6 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('6.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('6.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 7 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('7.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('7.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 8 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('8.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('8.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 9 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('9.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('9.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 10 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('10.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('10.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 11 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('11.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('11.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 12 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('12.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('12.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 13 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('13.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('13.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 14 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('14.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('14.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 15 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('15.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('15.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 16 -->
+          <div class="fade-up delay-1 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('16.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de festa"
+               title="Clique para ampliar - Festa">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('16.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+
+          <!-- Foto 17 -->
+          <div class="fade-up delay-2 group flex flex-col items-center cursor-pointer" 
+               onclick="abrirModal('17.jpeg')"
+               role="button"
+               tabindex="0"
+               aria-label="Ampliar foto de eventos sociais"
+               title="Clique para ampliar - Eventos Sociais">
+            <div class="w-[130px] h-[130px] md:w-[160px] md:h-[160px] rounded-2xl
+                        border-2 border-[#c9a84c]/30 hover:border-[#c9a84c]
+                        overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#c9a84c]/20
+                        transition-all duration-500 ease-out
+                        bg-[rgba(10,22,40,0.8)]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                   style="background-image: url('17.jpeg');"
+                   role="img"
+                   aria-label="">
+              </div>
+            </div>
+            <span class="mt-3 text-[11px] md:text-xs tracking-[3px] uppercase text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors"></span>
+          </div>
+        </div>
+        
+        <!-- CONTROLES DO CARROSSEL -->
+        <div class="flex justify-center items-center gap-4 mt-10">
+          
+          <button onclick="pausarCarrossel()" 
+                  class="w-10 h-10 rounded-full border border-[#c9a84c]/30 flex items-center justify-center text-[#c9a84c]/70 hover:bg-[#c9a84c]/10 hover:border-[#c9a84c] transition-colors group"
+                  aria-label="Pausar rolagem automática da galeria"
+                  title="Pausar rolagem">
+            <span class="sr-only">Pausar</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="group-hover:scale-110 transition-transform" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" />
+              <rect x="14" y="5" width="4" height="14" />
+            </svg>
+          </button>
+          
+          <button onclick="retomarCarrossel()" 
+                  class="w-10 h-10 rounded-full border border-[#c9a84c]/30 flex items-center justify-center text-[#c9a84c]/70 hover:bg-[#c9a84c]/10 hover:border-[#c9a84c] transition-colors group"
+                  aria-label="Retomar rolagem automática da galeria"
+                  title="Retomar rolagem">
+            <span class="sr-only">Retomar</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="group-hover:scale-110 transition-transform" aria-hidden="true">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+          </button>
+          
+          <a href="https://www.instagram.com/anacarol.assessoria/" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="w-10 h-10 rounded-full border border-[#c9a84c]/30 flex items-center justify-center text-[#c9a84c]/70 hover:bg-[#c9a84c]/10 hover:border-[#c9a84c] transition-colors group"
+             aria-label="Siga-nos no Instagram"
+             title="@anacarol.assessoria">
+            <span class="sr-only">Instagram</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="group-hover:scale-110 transition-transform" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Link Instagram -->
+        <div class="text-center mt-8 fade-up">
+          <a href="https://www.instagram.com/anacarol.assessoria/" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 text-[11px] tracking-[3px] uppercase text-[#c9a84c]/60 hover:text-[#c9a84c] transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+            </svg>
+            <span>@anacarol.assessoria</span>
+          </a>
+        </div>
+        
+        <!-- Botão ver mais -->
+        <div class="flex justify-center mt-12 fade-up delay-3">
+          <a href="https://www.instagram.com/anacarol.assessoria/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-instagram px-8 py-4 text-sm group">
+            <span>Ver mais no Instagram</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="transform group-hover:translate-x-1 transition-transform">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section id="depoimentos" class="w-full py-28 px-4" style="background: #0a1628;">
+      <div class="max-w-5xl mx-auto text-center">
+        
+        <div class="fade-up">
+          <span class="text-xs tracking-[8px] uppercase text-[#c9a84c] font-semibold">Depoimentos</span>
+          <h2 class="text-4xl md:text-5xl font-display gold-gradient-text mt-4 mb-6">O que dizem</h2>
+          <div class="gold-line center"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mt-16">
+          
+          <div class="fade-up p-8 rounded-3xl border border-[#c9a84c]/20 bg-[rgba(16,28,48,0.6)] text-left"
+               style="-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);">
+            <div class="flex gap-1 text-2xl text-[#c9a84c] mb-5">★★★★★</div>
+            <p class="text-lg italic text-[rgba(240,236,223,0.9)]">“Trabalho incrível, e muito necessário. Obrigado pelo cuidado nos detalhes e fazer parte desse dia tão especial. 🙏❣️”</p>
+            <div class="gold-line w-16 my-5"></div>
+            <p class="text-[#c9a84c] font-display text-xl">— Ricardo & Natália · 17/01/2026</p>
+          </div>
+          
+          <div class="fade-up delay-1 p-8 rounded-3xl border border-[#c9a84c]/20 bg-[rgba(16,28,48,0.6)] text-left"
+               style="-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);">
+            <div class="flex gap-1 text-2xl text-[#c9a84c] mb-5">★★★★★</div>
+            <p class="text-lg italic text-[rgba(240,236,223,0.9)]">“Ana, passando aqui pra agradecer antes tarde do que nunca. Quero te agradecer de coração por tudo o que você fez por nós, tudo ocorreu da melhor forma possível, sua organização e da sua mãe foi sensacional. Muito obrigada pelo carinho, empenho e paciência conosco. É muito nítido a responsabilidade e comprometimento de vocês, desejo muito sucesso. Que Deus abençoe vocês!! 🤍”</p>
+            <div class="gold-line w-16 my-5"></div>
+            <p class="text-[#c9a84c] font-display text-xl">— Jéssica & Anderson · 07/02/2026</p>
+          </div>
+          
+          <div class="fade-up delay-2 p-8 rounded-3xl border border-[#c9a84c]/20 bg-[rgba(16,28,48,0.6)] text-left md:col-span-2 md:max-w-2xl md:mx-auto"
+               style="-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);">
+            <div class="flex gap-1 text-2xl text-[#c9a84c] mb-5">★★★★★</div>
+            <p class="text-lg italic text-[rgba(240,236,223,0.9)]">“Que lindo, nós amamos o vídeo, deu pra ver um pouquinho como nós estávamos. Obrigada por tudo, vocês foram fundamentais para que tudo saísse da melhor forma possível. Amamos muito cada minuto do nosso casamento. 😘❤️”</p>
+            <div class="gold-line w-16 my-5"></div>
+            <p class="text-[#c9a84c] font-display text-xl">— Eliete & Vagner · 20/12/2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
+    <section id="contato" class="w-full py-20 px-4 relative" style="background: #0a1628;">
+      <div class="max-w-4xl mx-auto relative z-10">
+        
+        <div class="fade-up delay-2 flex flex-col items-center justify-center w-full">
+          
+          <!-- Container da Logo -->
+          <div class="inline-flex flex-col items-center justify-center border border-[#c9a84c]/30 rounded-[60px] px-10 py-8 
+                      bg-[rgba(16,28,48,0.5)] backdrop-blur-md mb-8 w-auto"
+               style="-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);">
+            
+            <!-- LOGO TEXTO -->
+            <div class="flex flex-col items-center text-center">
+              <span class="font-display font-extrabold" 
+                    style="font-size: 1.8rem; letter-spacing: 2px; 
+                           background: linear-gradient(135deg, #f5e7c8, #c9a84c, #b38f40, #dbb957);
+                           -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+                           text-shadow: 0 2px 8px rgba(201,168,76,0.25);
+                           line-height: 1.1;">
+                ANA CAROL
+              </span>
+              
+              <span class="font-serif-alt font-medium mt-1"
+                    style="font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase;
+                           color: #f0ecdf; background: rgba(201,168,76,0.1); 
+                           padding: 4px 12px 4px 16px; border-radius: 30px;
+                           border-left: 4px solid #c9a84c; display: inline-block;">
+                ASSESSORIA DE EVENTOS SOCIAIS
+              </span>
+            </div>
+          </div>
+          
+          <div class="text-center w-full">
+            <h3 class="text-3xl md:text-4xl font-display gold-gradient-text mb-4 mx-auto"
+                style="font-family: 'Playfair Display', serif; font-weight: 700;">
+              Vamos realizar seu sonho?
+            </h3>
+            
+            <div class="gold-line center !w-12 mx-auto mb-6"></div>
+            
+            <p class="text-xl text-[#c9a84c] italic font-lora mb-10"
+               style="font-family: 'Lora', serif;">
+              Entre em contato e comece a planejar
+            </p>
+            
+            <div class="flex justify-center items-center w-full">
+              <a href="https://www.instagram.com/anacarol.assessoria/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn-gold inline-flex items-center justify-center gap-3 px-10 py-4 text-sm"
+                 aria-label="Siga-nos no Instagram - @anacarol.assessoria"
+                 title="@anacarol.assessoria">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="#0a1628" />
+                </svg>
+                <span style="letter-spacing: 4px;">@ANACAROL.ASSESSORIA</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="w-full py-8 px-6 border-t border-[#c9a84c]/20" style="background: #0a1628;">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="flex flex-col items-center justify-center gap-4 text-center">
+          
+          <div class="flex flex-col items-center gap-1">
+            <span class="font-display text-xl text-[#c9a84c] tracking-wider"
+                  style="font-family: 'Playfair Display', serif; font-weight: 700;">
+              <div class="flex items-center">
+      <img src="Logoana.png" alt="ANA CAROL Assessoria de Eventos Sociais" class="h-12 md:h-14 w-auto">
+    </div>
+          </div>
+          
+          <p class="text-xs text-[rgba(240,236,223,0.4)] tracking-[3px] uppercase">
+            © 2026 Assessoria Ana Carol · Todos os direitos reservados
+          </p>
+          
+          <a href="https://www.instagram.com/anacarol.assessoria/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="inline-flex items-center justify-center gap-2 text-xs tracking-[3px] uppercase 
+                    text-[rgba(240,236,223,0.4)] hover:text-[#c9a84c] transition-colors mx-auto"
+             aria-label="Siga-nos no Instagram - @anacarol.assessoria"
+             title="@anacarol.assessoria">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+            </svg>
+            <span>INSTAGRAM</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- MODAL PARA AMPLIAR FOTO -->
+  <div id="modal-foto" 
+       class="fixed inset-0 z-50 hidden items-center justify-center bg-[#0a1628]/95 backdrop-blur-xl transition-all duration-300" 
+       onclick="fecharModal()"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Visualização ampliada da foto">
+    
+    <div class="relative max-w-4xl mx-auto p-6" onclick="event.stopPropagation()">
+      
+      <button onclick="fecharModal()" 
+              class="absolute -top-12 right-0 text-[#c9a84c]/70 hover:text-[#c9a84c] transition-colors group"
+              aria-label="Fechar visualização ampliada"
+              title="Fechar (ESC)">
+        <span class="sr-only">Fechar</span>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="group-hover:scale-110 transition-transform" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <div class="rounded-2xl overflow-hidden border-2 border-[#c9a84c]/30 shadow-2xl bg-[#0a1628]">
+        <img id="foto-ampliada" 
+             src="" 
+             alt="" 
+             class="w-full h-auto max-h-[80vh] object-contain">
+      </div>
+      
+      <p id="titulo-foto" class="text-center mt-4 text-[#c9a84c] text-sm md:text-base tracking-[4px] uppercase"></p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // VARIÁVEIS DE CONTROLE
+    let carrossel = document.getElementById('carrossel-galeria');
+    let animationPaused = false;
+
+    // FUNÇÕES DO CARROSSEL
+    function pausarCarrossel() {
+      if (carrossel) {
+        carrossel.style.animationPlayState = 'paused';
+        animationPaused = true;
+      }
+    }
+
+    function retomarCarrossel() {
+      if (carrossel) {
+        carrossel.style.animationPlayState = 'running';
+        animationPaused = false;
+      }
+    }
+
+    // PAUSAR AO PASSAR O MOUSE
+    if (carrossel) {
+      carrossel.addEventListener('mouseenter', pausarCarrossel);
+      carrossel.addEventListener('mouseleave', retomarCarrossel);
+    }
+
+    // FUNÇÕES DO MODAL
+    function abrirModal(src, titulo) {
+      const modal = document.getElementById('modal-foto');
+      const foto = document.getElementById('foto-ampliada');
+      const tituloEl = document.getElementById('titulo-foto');
+      
+      foto.src = src;
+      foto.alt = `Foto ampliada - ${titulo || 'Evento'}`;
+      tituloEl.textContent = titulo || '';
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      pausarCarrossel();
+      document.body.style.overflow = 'hidden';
+      modal.focus();
+    }
+
+    function fecharModal() {
+      const modal = document.getElementById('modal-foto');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      
+      if (!animationPaused) {
+        retomarCarrossel();
+      }
+      
+      document.body.style.overflow = 'auto';
+    }
+
+    // FECHAR MODAL COM TECLA ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        fecharModal();
+      }
+    });
+
+    // SUPORTE PARA TECLADO NOS BOTÕES
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[role="button"]').forEach(button => {
+        button.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+
+      // Intersection Observer para fade-up
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      
+      document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Smooth scroll para links internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Revelar elementos já visíveis
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.fade-up').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            el.classList.add('revealed');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
